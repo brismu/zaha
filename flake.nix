@@ -1,7 +1,7 @@
 {
   description = "Categorical diagrams";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -38,7 +38,7 @@
         };
         devShells.default = pkgs.mkShell {
           name = "zaha-env";
-          packages = [];
+          packages = [ pkgs.jq ];
         };
       }
     );
