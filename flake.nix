@@ -1,7 +1,7 @@
 {
   description = "Categorical diagrams";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -10,7 +10,8 @@
       let
         pkgs = import nixpkgs { inherit system; };
         py = pkgs.python310.withPackages (ps: with ps; [
-          attrs click-repl
+          # XXX click-repl is broken
+          attrs click
         ]);
         zaha = pkgs.stdenv.mkDerivation {
           name = "zaha";
